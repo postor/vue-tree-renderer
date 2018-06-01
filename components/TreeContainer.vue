@@ -1,6 +1,6 @@
 <template>
   <div>
-    TreeContainer {{nodeComponent}}
+    TreeContainer {{nodeTag}}
     <component :is="nodeTag" :node="tree" @updateNode="updateTree($event)" />
   </div>
 </template>

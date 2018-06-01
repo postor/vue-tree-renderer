@@ -1,8 +1,16 @@
 <template>
-  <div>
-    TreeNode {{node}}
-    <tree-node :node="n" @updateNode="updateNode(i,$event)" v-for="(n,i) in node.children||[]" :key="i"></tree-node>
+  <div class="level">
+    <div class="horizontal"></div>
+    <div class="node-title">
+      <span>{{node.val}}</span>
+    </div>
+    <div class="box" v-if="node.children&&node.children.length">
+      <div class="horizontal-parent"></div>
+      <div class="virtical"></div>
+      <tree-node :node="n" @updateNode="updateNode(i,$event)" v-for="(n,i) in node.children||[]" :key="i"></tree-node>  
+    </div>  
   </div>
+  
 </template>
 
 <script>
