@@ -1,4 +1,4 @@
-# vue-task-tree-research
+# vue-tree-renderer
 
 > Nuxt.js project
 

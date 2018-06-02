@@ -2,15 +2,13 @@
   <div class="node-level">
     <div class="node-horizontal" :style="horizontalStyle" v-if="!node.hideHorizontal"></div>
     <div class="node-title" style="align-self: center;">
-      <span>{{node.val}}</span>
+      <input v-model="node.val" style="width: 20px;" />
     </div>
     <div class="node-box" v-if="node.children&&node.children.length">
       <div class="node-horizontal-parent" :style="horizontalParentStyle"></div>
       <div class="node-virtical-parent" :style="virticalParentStyle" v-if="node.children&&node.children.length>1"></div>
       <tree-node-center 
         :node="n" 
-        @updateNode="updateNode(i,$event)"         
-        @updateCenter="updateCenter(i,$event)" 
         v-for="(n,i) in node.children||[]" 
         :key="i"
       ></tree-node-center>  
@@ -23,18 +21,6 @@
 export default {
   props: ["node"],
   methods: {
-    updateNode: function(i, nodeData) {
-      const oldChildren = this.node.children;
-      this.$emit(
-        "updateNode",
-        Object.assign({}, this.node, {
-          children: oldChildren
-            .slice(0, i)
-            .concat([nodeData])
-            .concat(oldChildren.slice(0, i + 1))
-        })
-      );
-    },
     getTotalHeight(node){
       return getHeight(node)
       
