@@ -1,30 +1,20 @@
 .node-title {
   height: 40px;
   line-height: 40px;
-  border: 1px solid blue;
   padding-right: 100px;
 }
 
-
-h1,
-h2 {
-  margin: 0;
-}
-
-.level {
+.node-level {
   display: flex;
   position: relative;
 }
 
-.box {
+.node-box {
   width: 200px;
-}
-
-.box {
   position: relative;
 }
 
-.box .horizontal-parent {
+.node-horizontal-parent {
   border-top: 1px solid red;
   position: absolute;
   width: 50px;
@@ -32,23 +22,16 @@ h2 {
   top: 20px;
 }
 
-.box .virtical {
-  box-sizing: border-box;
+.node-virtical-parent {
   height: 100%;
   width: 1px;
   position: absolute;
-  border-top: 20px solid #fff;
-  border-bottom: 20px solid #fff;
   top: 0;
   left: -50px;
   background-color: red;
 }
 
-.level {
-  position: relative;
-}
-
-.box .level .horizontal {
+.node-horizontal {
   border-top: 1px solid red;
   position: absolute;
   width: 50px;

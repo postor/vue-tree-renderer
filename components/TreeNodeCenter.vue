@@ -1,19 +1,19 @@
 <template>
   <div class="node-level">
     <div class="node-horizontal" :style="horizontalStyle" v-if="!node.hideHorizontal"></div>
-    <div class="node-title">
+    <div class="node-title" style="align-self: center;">
       <span>{{node.val}}</span>
     </div>
     <div class="node-box" v-if="node.children&&node.children.length">
       <div class="node-horizontal-parent" :style="horizontalParentStyle"></div>
       <div class="node-virtical-parent" :style="virticalParentStyle" v-if="node.children&&node.children.length>1"></div>
-      <tree-node 
+      <tree-node-center 
         :node="n" 
         @updateNode="updateNode(i,$event)"         
         @updateCenter="updateCenter(i,$event)" 
         v-for="(n,i) in node.children||[]" 
         :key="i"
-      ></tree-node>  
+      ></tree-node-center>  
     </div>  
   </div>
   
@@ -48,26 +48,37 @@ export default {
   },
   computed:{
     horizontalStyle: function(){
+      const top = this.getTotalHeight(this.node)/2    
       return {
         borderTop: '1px solid green',
+        width: `50px`,
+        left: `-50`,
+        top: `${top}px`
       }
     },    
-    horizontalParentStyle: function(){      
+    horizontalParentStyle: function(){  
+      const top = this.getTotalHeight(this.node)/2    
       return {
         borderTop: '1px solid green',
+        width: `50px`,
+        left: `-100px`,
+        top: `${top}px`
       }
     },
     virticalParentStyle: function(){
-
-      const height = (this.node.children && this.node.children.length>1)
-        ?this.node.children.slice(0,this.node.children.length-1).reduce((rtn,n)=>rtn+this.getTotalHeight(n),0)
-        :0
-
+      const offset = this.getTotalHeight(this.node.children[0])/2
+      const height = 
+        offset 
+        + this.node.children
+          .slice(1,this.node.children.length-1)
+          .reduce((rtn,node)=>rtn+this.getTotalHeight(node),0)
+        + this.getTotalHeight(this.node.children[this.node.children.length-1])/2
+      
       return {
         borderLeft: `1px solid green` ,
         width: `0`,
         left: `-50px`,
-        top: `20px`,
+        top: `${offset}px`,
         height: `${height}px`, 
       }
     },

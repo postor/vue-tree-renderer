@@ -2,6 +2,7 @@
   <div>
     TreeTest
     <tree-container :tree="tree" nodeTag="tree-node" @updateTree="this.tree=$event"></tree-container>
+    <tree-container :tree="tree" nodeTag="tree-node-center" @updateTree="this.tree=$event"></tree-container>
   </div>
 </template>
 
@@ -17,12 +18,24 @@ export default {
     return {
       tree: {
         val: 1,
+        hideHorizontal: true,
         children: [
           {
             val: 2,
             children: [
               {
                 val: 4
+              },
+              {
+                val: 7,
+                children: [
+                  {
+                    val: 8
+                  },
+                  {
+                    val: 9  
+                  }
+                ]
               }
             ]
           },
