@@ -37,8 +37,6 @@ export default {
       const top = this.getTotalHeight(this.node)/2    
       return {
         borderTop: '1px solid green',
-        width: `50px`,
-        left: `-50`,
         top: `${top}px`
       }
     },    
@@ -46,8 +44,6 @@ export default {
       const top = this.getTotalHeight(this.node)/2    
       return {
         borderTop: '1px solid green',
-        width: `50px`,
-        left: `-100px`,
         top: `${top}px`
       }
     },
@@ -63,7 +59,6 @@ export default {
       return {
         borderLeft: `1px solid green` ,
         width: `0`,
-        left: `-50px`,
         top: `${offset}px`,
         height: `${height}px`, 
       }

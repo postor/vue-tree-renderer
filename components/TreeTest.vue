@@ -1,8 +1,10 @@
 <template>
   <div>
     TreeTest
-    <tree-container :tree="tree" nodeTag="tree-node" @updateTree="this.tree=$event"></tree-container>
-    <tree-container :tree="tree" nodeTag="tree-node-center" @updateTree="this.tree=$event"></tree-container>
+    <tree-container :tree="tree" nodeTag="tree-node-basic" ></tree-container>
+    <tree-container :tree="tree" nodeTag="tree-node-css" ></tree-container>
+    <tree-container :tree="tree" nodeTag="tree-node" ></tree-container>
+    <tree-container :tree="tree" nodeTag="tree-node-center" ></tree-container>
   </div>
 </template>
 
@@ -10,7 +12,6 @@
 import TreeContainer from "./TreeContainer";
 
 export default {
-  props: [],
   components: {
     TreeContainer,
   },

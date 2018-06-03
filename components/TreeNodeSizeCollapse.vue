@@ -14,7 +14,7 @@
         class="node-collpase" 
         :style="collapseStyle"
         @click="collapse(!node.collpase)"
-      >{{node.collpase?'+':'-'}} {{node.collpase}}</div>
+      >{{node.collpase?'+':'-'}}</div>
       <tree-node-size-collapse 
         :node="n" 
         v-for="(n,i) in node.children||[]"
@@ -45,7 +45,7 @@ export default {
     titleStyle: function() {
       return {
         boxSizing: `border-box`,
-        border: `1px solid red`,
+        //border: `1px solid red`,
         lineHeight: `${this.node.height}px`,
         height: `${this.node.height}px`
       };
@@ -90,6 +90,7 @@ export default {
       }
 
       return {
+        border: '0 none',
         borderLeft: `1px solid green`,
         width: `0`,
         left: `-50px`,
