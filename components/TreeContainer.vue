@@ -1,7 +1,7 @@
 <template>
   <div>
     TreeContainer {{nodeTag}}
-    <component :is="nodeTag" :node="tree" @updateNode="updateTree($event)" />
+    <component :is="nodeTag" :node="tree" />
   </div>
 </template>
 
@@ -12,9 +12,6 @@ export default {
     return {}
   },
   methods: {
-    updateTree: function(tree){
-      this.$emit('updateTree',tree)
-    }
   },
 };
 </script>
